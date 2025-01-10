@@ -421,4 +421,22 @@ theorem tmp2 (x y:ℝ):x ^ 2 * x⁻¹=x:=by
 Real.rpow_logb {b x : ℝ} (b_pos : 0 < b) (b_ne_one : b ≠ 1) (hx : 0 < x) :
   b ^ Real.logb b x = x
 
-NNReal表示非负的实数集合
+NNReal表示非负的实数集合。`ENNReal` 通过扩展 `Option NNReal` 实现：
+  - **`NNReal`** （非负实数）表示所有的有限值 \([0, \infty)\)；
+  - 额外增加一个 `none` 值，表示 \(+\infty\)。
+
+
+
+
+\[
+\text{ENNReal.ofReal}\  x =
+\begin{cases} 
+x, & \text{如果 } x \geq 0 \\ 
+0, & \text{如果 } x < 0
+\end{cases}
+\]
+
+
+SubderivAt f x表示函数f在点x的次梯度集合。
+
+`LipschitzWith G f` 表示函数 \( f \) 是 **Lipschitz 连续的**，并且其 **Lipschitz 常数** 是 \( G \)。
